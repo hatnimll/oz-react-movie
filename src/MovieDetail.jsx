@@ -11,8 +11,10 @@ export default function MovieDetail() {
         src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`}
       />
       <div>
-        <h2 className="text-5xl mb-[50px]">{movieDetail.original_title}</h2>
-        <p className="text-3xl mb-[30px]">평점 : {movieDetail.vote_average}</p>
+        <div className="flex my-[50px] gap-5 items-center">
+          <h2 className="text-5xl">{movieDetail.original_title}</h2>
+          <p className="text-3xl">평점 : {movieDetail.vote_average}</p>
+        </div>
         <p className="text-3xl mb-[30px]">
           장르 :
           {movieDetail.genres.map((genre) => (
