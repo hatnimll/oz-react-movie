@@ -1,31 +1,46 @@
-import './App.css';
 import MovieCard from './components/MovieCard';
-import movieListData from './assets/data/movieListData';
 import { useState } from 'react';
-import { Routes } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MovieDetail from './MovieDetail';
+import { useEffect } from 'react';
+import NavBar from './components/NavBar';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import { tmdbAPI } from './assets/data/api';
 
 function App() {
-  const [movieData] = useState(movieListData.results);
+  const [movieData, setMovieData] = useState([]);
 
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const res = await tmdbAPI.get('/popular');
+        setMovieData(res.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchMovies();
+  }, []);
   return (
     <>
-      <h1 className="text-7xl m-5 bg-black text-white px-7 h-[100px]">
-        oz movie
-      </h1>
+      <header className=" bg-black text-white px-7 w-[100%] h-[100px] fixed top-0">
+        <NavBar />
+      </header>
       <Routes>
         <Route
           path="/"
           element={
-            <div className="flex flex-wrap m-10 gap-10 justify-center">
+            <div className="flex flex-wrap m-10 gap-10 justify-center pt-[100px]">
               {movieData.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}
             </div>
           }
         />
-        <Route path="/details" element={<MovieDetail />} />
+        <Route path="/details/:id" element={<MovieDetail />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
