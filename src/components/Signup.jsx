@@ -4,18 +4,16 @@ export default function Signup() {
       <h1 className="text-5xl mb-[100px] font-bold">회원가입</h1>
       <form className="flex flex-col gap-4">
         <label className="border border-solid border-gray-400 p-4 rounded-lg w-[500px] h-[70px]">
-          <input
-            type="text"
-            name="name"
-            placeholder="이름을 입력하세요"
-            required
-          />
+          <input type="text" name="name" placeholder="이름" required />
+        </label>
+        <label className="border border-solid border-gray-400 p-4 rounded-lg w-[500px] h-[70px]">
+          <input type="email" name="email" placeholder="이메일" required />
         </label>
         <label className="border border-solid border-gray-400 p-4 rounded-lg w-[500px] h-[70px]">
           <input
-            type="email"
-            name="email"
-            placeholder="이메일을 입력하세요"
+            type="password"
+            name="password"
+            placeholder="비밀번호"
             required
           />
         </label>
@@ -23,7 +21,7 @@ export default function Signup() {
           <input
             type="password"
             name="password"
-            placeholder="비밀번호를 입력하세요"
+            placeholder="비밀번호 확인"
             required
           />
         </label>
