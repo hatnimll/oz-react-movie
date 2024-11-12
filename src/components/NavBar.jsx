@@ -67,7 +67,7 @@ export default function NavBar() {
   return (
     <nav className="flex text-sm sm:text-2xl  lg:text-3xl justify-between items-center px-3 sm:px-6 lg:px-10 h-full">
       <h1 className="text-2xl sm:text-5xl" onClick={handleLogoClick}>
-        oz 무비
+        lam 무비
       </h1>
       <div className="flex gap-3 sm:gap-5 lg:gap-8">
         {clickedSearchButton ? (
