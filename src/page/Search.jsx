@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import MovieCard from '../components/MovieCard';
-import { tmdbAPI } from '../assets/data/api';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { tmdbAPI } from '../services/api';
 
 export default function Search() {
   const { debouncedSearchValue } = useParams();

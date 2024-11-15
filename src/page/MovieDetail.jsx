@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { tmdbAPI } from '../assets/data/api';
+import { tmdbAPI } from '../services/api';
 
 export default function MovieDetail() {
   let { id } = useParams();

@@ -1,26 +1,26 @@
 import { useEffect } from 'react';
-import { tmdbAPI } from '../assets/data/api';
 import { useState } from 'react';
 import MovieCard from '../components/MovieCard';
+import { tmdbAPI } from '../services/api';
 
 export default function Main() {
-  const [movieData, setMovieData] = useState([]);
+  const [popularMovieData, setPopularMovieData] = useState([]);
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    const fetchPopularMovies = async () => {
       try {
         const res = await tmdbAPI.get('/movie/popular');
-        setMovieData(res.data.results);
+        setPopularMovieData(res.data.results);
       } catch (error) {
         console.error(error);
       }
     };
-    fetchMovies();
+    fetchPopularMovies();
   }, []);
 
   return (
     <>
-      {movieData.map((movie) => (
+      {popularMovieData.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
     </>

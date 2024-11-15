@@ -5,7 +5,7 @@ import useDebounce from '../hooks/useDebounce';
 import { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { FaRegUserCircle } from 'react-icons/fa';
-import supabase from '../supabaseClient';
+import supabase from '../services/supabaseClient';
 
 export default function NavBar() {
   const { user } = useAuth();
